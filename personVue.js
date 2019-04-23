@@ -44,7 +44,7 @@ class PersonVue {
 	 ** $datas 初始化的数据
 	 */
 	bindVarHandler($datas) {
-		let getHandler = (key) => {
+		let getHandler = key => {
 			return {
 				enumerable: true,
 				configurable: true,
