@@ -3,9 +3,9 @@
 
 #### 使用方法说明
 
-``` bash
-
 ### 示例代码
+
+``` bash
 
 #HTML部分
 <div id='index'>
