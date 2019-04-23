@@ -91,7 +91,7 @@ class PersonVue {
 	 ** 解析模板文件,生成对应HTML元素
 	 ** $components 对应模板组件
 	 */
-    analysComponents($components) {
+	analysComponents($components) {
 		if ($components instanceof Array) {
 			$components.map($component => {
 				let $el = document.querySelector('sub')
