@@ -6,7 +6,7 @@ class PersonVue {
 		this.bindVarHandler(data.data)
 		this.setDataHandler(this.$data)
 		this.bindEventHandler()
-		this.analysComponents(components)
+		this.analysComponentsHandler(components)
 	}
 	/*
 	** 将初始化的数据灌入类中
@@ -91,7 +91,7 @@ class PersonVue {
 	 ** 解析模板文件,生成对应HTML元素
 	 ** $components 对应模板组件
 	 */
-	analysComponents($components) {
+	analysComponentsHandler($components) {
 		if ($components instanceof Array) {
 			$components.map($component => {
 				let $el = document.querySelector('sub')
