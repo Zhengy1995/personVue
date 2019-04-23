@@ -87,6 +87,10 @@ class PersonVue {
 			this[$value] ? $el.innerText = value : $el.innerText = $value
 		}
 	}
+	/*
+	 ** 解析模板文件,生成对应HTML元素
+	 ** $components 对应模板组件
+	 */
     analysComponents($components) {
 		if ($components instanceof Array) {
 			$components.map($component => {
@@ -96,6 +100,11 @@ class PersonVue {
 			})
 		}
 	}
+	/*
+	 ** 生成HTML元素
+	 ** $template 对应模板
+	 ** $id 对应元素的id
+	 */
 	_getHtmlNode($template, $id) {
         let $el = document.createElement('div')
 		$el.innerHTML = $template 
