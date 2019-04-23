@@ -106,8 +106,8 @@ class PersonVue {
 	 ** $id 对应元素的id
 	 */
 	_getHtmlNode($template, $id) {
-        let $el = document.createElement('div')
-		$el.innerHTML = $template 
+		let $el = document.createElement('div')
+		$el.innerHTML = $template
 		return $el.firstElementChild
 	}
 	/*
