@@ -1,11 +1,12 @@
 class PersonVue {
-	constructor({el, data}) {
+	constructor({el, data, components}) {
 		this.$el = el
 		this.$method = data.method
 		this.initDataHandler(data.data)
 		this.bindVarHandler(data.data)
 		this.setDataHandler(this.$data)
 		this.bindEventHandler()
+		this.analysComponents(components)
 	}
 	/*
 	** 将初始化的数据灌入类中
@@ -43,7 +44,7 @@ class PersonVue {
 	 ** $datas 初始化的数据
 	 */
 	bindVarHandler($datas) {
-		let getHandler = key => {
+		let getHandler = (key) => {
 			return {
 				enumerable: true,
 				configurable: true,
@@ -85,6 +86,20 @@ class PersonVue {
 			let $value = $el.getAttribute('p-bind')
 			this[$value] ? $el.innerText = value : $el.innerText = $value
 		}
+	}
+    analysComponents($components) {
+		if ($components instanceof Array) {
+			$components.map($component => {
+				let $el = document.querySelector('sub')
+                let $element = this._getHtmlNode($component.template(), $component.id)
+				$el.parentNode.replaceChild($element, $el)
+			})
+		}
+	}
+	_getHtmlNode($template, $id) {
+        let $el = document.createElement('div')
+		$el.innerHTML = $template 
+		return $el.firstElementChild
 	}
 	/*
 	 ** 实现组件注册的方法
